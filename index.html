@@ -1,52 +1,115 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Parallel Computing Distance Based on Heat Flow : Team Members: Bo Feng, Han Li">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Parallel Computing Distance Based on Heat Flow</title>
+    <meta charset="UTF-8">
+    <title>Parallel Computing Distance Based on Heat Flow by hanli32</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Parallel Computing Distance Based on Heat Flow</h1>
+      <h2 class="project-tagline">Team Members: Bo Feng, Han Li</h2>
+      <a href="https://github.com/hanli32/15618project" class="btn">View on GitHub</a>
+      <a href="https://github.com/hanli32/15618project/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/hanli32/15618project/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/hanli32/15618project">View on GitHub</a>
+    <section class="main-content">
+      <h1>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
 
-          <h1 id="project_title">Parallel Computing Distance Based on Heat Flow</h1>
-          <h2 id="project_tagline">Team Members: Bo Feng, Han Li</h2>
+<p>We are going to parallel computing the geodesic distance to a specified subset of a given domain (grids, triangle meshes, point clouds) on GPU.</p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/hanli32/15618project/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/hanli32/15618project/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<h1>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h1>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="15618project" class="anchor" href="#15618project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>15618project</h1>
+<p>Traditional geodesics distance computing faces challenge of generalization and efficiency. The heat method solves the problem by making use of standard linear equations, which proves to be fast, general and huge potential for parallelization. In practice, distance is updated an order of magnitude with heat method faster than with state-of-the-art methods, while maintaining a comparable level of accuracy. The method requires only standard differential operators and can hence be applied on a wide variety of domains (grids, triangle meshes, point clouds, etc.). </p>
 
-<p>15618 final project</p>
-      </section>
-    </div>
+<p>However, None of the current implementations of the heat method fully exploit its potential for speed. Being attracted to this creative approach for distance computing, we are highly motivated to put our effort and apply parallel computing techniques from 15618 course to implementing this idea. That is, our goal is to produce a high-performance, general-purpose and user-friendly library of geodesic distance computation, which supports multiple domains, including triangle meshes, grids and point clouds and fully exploit parallel computing power of GPU-based system.</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Parallel Computing Distance Based on Heat Flow maintained by <a href="https://github.com/hanli32">hanli32</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+<h1>
+<a id="the-challenge" class="anchor" href="#the-challenge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Challenge</h1>
+
+<p>There are great challenges lying in this project since it involves complex graphics/geometry knowledge and non-trivial parallelism for implementation on GPU-based system. </p>
+
+<p>Despite interest in this topic, neither of us has sufficient experience in graphic fields. Therefore, it might not be easy for us to fast understand the model and framework in the project. And this would certainly increase difficulty for us to exploit the potential parallelism during writing code for implementation and further optimization. </p>
+
+<p>Furthermore, GPU-based system has a distinction between the device memory and host memory. At this moment, it’s not obvious to us how to efficiently organize the workload so as to reduce the traffic overhead incurred by moving data back and forth. </p>
+
+<h1>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h1>
+
+<p>Generally, we will start from scratch on this project. However, the idea is mainly from the original heat method paper, and we can also refer to the existing library written in ANSI-C as a good sequential implementation example for triangulated surfaces.</p>
+
+<h1>
+<a id="goals-and-deliverables" class="anchor" href="#goals-and-deliverables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals and Deliverables</h1>
+
+<p>Since the starter code gives triangle meshes implementation, we hope to implement this algorithm on other domains like grids and point clouds.   </p>
+
+<p>We plan to parallel this implementation with CUDA. We do not have a precise performance goal now but we will set an aim in later phases after having a better understand of this algorithm.   </p>
+
+<p>We plan to demonstrate our project by given two points then compute the geodesic distance in real time.</p>
+
+<h1>
+<a id="platform-choice" class="anchor" href="#platform-choice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform Choice</h1>
+
+<p>We are going to use CUDA framework on both GHC machines and latedays clusters in order to have a low-level control of GPUs and maximize parallelism speedup.</p>
+
+<h1>
+<a id="schedule" class="anchor" href="#schedule" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Schedule</h1>
+
+<h3>
+<a id="april-3rd---apri-9th" class="anchor" href="#april-3rd---apri-9th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 3rd - Apri 9th</h3>
+
+<ul>
+<li>Do more background research.</li>
+<li>Read and get familiar with starter code.</li>
+</ul>
+
+<h3>
+<a id="april-10th---april-16th" class="anchor" href="#april-10th---april-16th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 10th - April 16th</h3>
+
+<ul>
+<li>Begin serial implementation on other domains (grids and point clouds).</li>
+</ul>
+
+<h3>
+<a id="april-17th---april-23rd" class="anchor" href="#april-17th---april-23rd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 17th - April 23rd</h3>
+
+<ul>
+<li>Finish serial implementation.</li>
+<li>Begin parallel computing the geodesic distance.</li>
+</ul>
+
+<h3>
+<a id="april-24th---april-30th" class="anchor" href="#april-24th---april-30th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 24th - April 30th</h3>
+
+<ul>
+<li>Finish a correct parallel implementation.</li>
+<li>Optimize parallel implementation to achieve objective speedup.</li>
+</ul>
+
+<h3>
+<a id="may-1st---may-7th" class="anchor" href="#may-1st---may-7th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>May 1st - May 7th</h3>
+
+<ul>
+<li>Prepare demos.</li>
+<li>Analyze final results.</li>
+<li>Finish final report.</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hanli32/15618project">Parallel Computing Distance Based on Heat Flow</a> is maintained by <a href="https://github.com/hanli32">hanli32</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
