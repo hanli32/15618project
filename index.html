@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Parallel Computing Distance Based on Heat Flow by hanli32</title>
+    <title>Parallel Linear Solver using PCG by hanli32</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -11,7 +11,7 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Parallel Computing Distance Based on Heat Flow</h1>
+      <h1 class="project-name">Parallel Linear Solver using PCG</h1>
       <h2 class="project-tagline">Team Members: Bo Feng, Han Li</h2>
       <a href="https://github.com/hanli32/15618project" class="btn">View on GitHub</a>
       <a href="https://github.com/hanli32/15618project/zipball/master" class="btn">Download .zip</a>
@@ -22,37 +22,37 @@
       <h1>
 <a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
 
-<p>We are going to parallel computing the geodesic distance to a specified subset of a given domain (grids, triangle meshes, point clouds) on GPU.</p>
+<p>We are going to implement a parallel linear solver using preconditioned conjugate gradient algorithm on GPU.</p>
 
 <h1>
 <a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h1>
 
-<p>Traditional geodesics distance computing faces challenge of generalization and efficiency. The heat method solves the problem by making use of standard linear equations, which proves to be fast, general and huge potential for parallelization. In practice, distance is updated an order of magnitude with heat method faster than with state-of-the-art methods, while maintaining a comparable level of accuracy. The method requires only standard differential operators and can hence be applied on a wide variety of domains (grids, triangle meshes, point clouds, etc.). </p>
+<p>The Poisson equation arises in many applications in computational fluid dynamics, electrostatics, magnetostatics, image processing, etc. Numerical solution of the Poisson equation, through finite element or finite difference discretization, leads to large sparse linear systems usually solved by iterative methods instead of direct methods (Gaussian elimination or Cholesky factorization). The conjugate gradient (CG) algorithm is one of the best known iterative methods for solving linear systems with symmetric, positive definite matrix.   </p>
 
-<p>However, None of the current implementations of the heat method fully exploit its potential for speed. Being attracted to this creative approach for distance computing, we are highly motivated to put our effort and apply parallel computing techniques from 15618 course to implementing this idea. That is, our goal is to produce a high-performance, general-purpose and user-friendly library of geodesic distance computation, which supports multiple domains, including triangle meshes, grids and point clouds and fully exploit parallel computing power of GPU-based system.</p>
+<p>The CG method can be easily adapted for linear systems with symmetric, semi-definite positive matrix. With a suitable preconditioner, the performance can be dramatically increased. The preconditioned conjugate gradient (PCG) has proven its efficiency and robustness in a wide range of applications. Our goal is to develop a parallel linear solver with an efficient PCG algorithm for the GPU architecture. </p>
 
 <h1>
 <a id="the-challenge" class="anchor" href="#the-challenge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Challenge</h1>
 
-<p>There are great challenges lying in this project since it involves complex graphics/geometry knowledge and non-trivial parallelism for implementation on GPU-based system. </p>
+<p>Firstly since we are going to process large but sparse matrix, it is necessary to use a special data structure. It is common to keep only non-zero elements. The challenge here is how to choose a data structure that can not only save space but also take advantage of data locality. Also, with the use of special data structure now each row has different number of elements, as a result we have to design an efficient schedule method but not simply assign one row of matrix to a thread, which may lead to uneven wordload.  </p>
 
-<p>Despite interest in this topic, neither of us has sufficient experience in graphic fields. Therefore, it might not be easy for us to fast understand the model and framework in the project. And this would certainly increase difficulty for us to exploit the potential parallelism during writing code for implementation and further optimization. </p>
+<p>Secondly since the preconditioned conjugate gradient algorithm is an iterative method, it is impossible to parallel different iterations. In each iteration there are several variable updates and some variables are dependent to other variables, for example in order to update variable z we must have a new version of variable a. Our challenge here is how to reduce the time of synchronization.  </p>
 
-<p>Furthermore, GPU-based system has a distinction between the device memory and host memory. At this moment, it’s not obvious to us how to efficiently organize the workload so as to reduce the traffic overhead incurred by moving data back and forth. </p>
+<p>In each iteration there two important operations, the first one is inner product and the second one is matrix-vector mulplication. For inner product we plan to use the prefix sum algorithm. The challenge here is how to implement an efficient prefix sum when the size of vector is not the power of 2. For matrix-vector mulplication we can parallel on matrix’s rows and the challenge is how to decide the number of elements each CUDA thread needs to process and the number of threads per CUDA block to better use of GPU resources like shared memory.   </p>
 
 <h1>
 <a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h1>
 
-<p>Generally, we will start from scratch on this project. However, the idea is mainly from the original heat method paper, and we can also refer to the existing library written in ANSI-C as a good sequential implementation example for triangulated surfaces.</p>
+<p>There are some efficient methods to do sparse matrix-vector mulplication in this paper[1]. Cuda also has a document[2] about how to efficiently parallel prefix sum.  </p>
+
+<p>We are going to use GPUs in GHC machines.</p>
 
 <h1>
 <a id="goals-and-deliverables" class="anchor" href="#goals-and-deliverables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals and Deliverables</h1>
 
-<p>Since the starter code gives triangle meshes implementation, we hope to implement this algorithm on other domains like grids and point clouds.   </p>
+<p>We are going to implement a serial version and parallel version of the preconditioned conjugate gradient algorithm. We plan to speed up the parallel version at least 10x compared to the serial version. We are going to test our implementation on the The University of Florida Sparse Matrix Collection[3] and we hope the performance of our implementation can tie the state-of-the-art library like SuiteSpace.   </p>
 
-<p>We plan to parallel this implementation with CUDA. We do not have a precise performance goal now but we will set an aim in later phases after having a better understand of this algorithm.   </p>
-
-<p>We plan to demonstrate our project by given two points then compute the geodesic distance in real time.</p>
+<p>We are going to demonstrate our project by plotting speedup and execution time graphs compared to the serial version as well as the state-of-the-art library.   </p>
 
 <h1>
 <a id="platform-choice" class="anchor" href="#platform-choice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform Choice</h1>
@@ -67,14 +67,14 @@
 
 <ul>
 <li>Do more background research.</li>
-<li>Read and get familiar with starter code.</li>
+<li>Read CUDA documents and get familiar with CUDA optimization.</li>
 </ul>
 
 <h3>
 <a id="april-10th---april-16th" class="anchor" href="#april-10th---april-16th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 10th - April 16th</h3>
 
 <ul>
-<li>Begin serial implementation on other domains (grids and point clouds).</li>
+<li>Begin serial implementation of the preconditioned conjugate gradient algorithm.</li>
 </ul>
 
 <h3>
@@ -82,7 +82,7 @@
 
 <ul>
 <li>Finish serial implementation.</li>
-<li>Begin parallel computing the geodesic distance.</li>
+<li>Begin parallel the preconditioned conjugate gradient algorithm.</li>
 </ul>
 
 <h3>
@@ -102,8 +102,17 @@
 <li>Finish final report.</li>
 </ul>
 
+<h1>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>references</h1>
+
+<ol>
+<li>Bell, Nathan, and Michael Garland. Efficient sparse matrix-vector multiplication on CUDA. Vol. 2. No. 5. Nvidia Technical Report NVR-2008-004, Nvidia Corporation, 2008.</li>
+<li>Harris, Mark, Shubhabrata Sengupta, and John D. Owens. "Parallel prefix sum (scan) with CUDA." GPU gems 3.39 (2007): 851-876.</li>
+<li><a href="http://www.cise.ufl.edu/research/sparse/matrices/">http://www.cise.ufl.edu/research/sparse/matrices/</a></li>
+</ol>
+
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/hanli32/15618project">Parallel Computing Distance Based on Heat Flow</a> is maintained by <a href="https://github.com/hanli32">hanli32</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/hanli32/15618project">Parallel Linear Solver using PCG</a> is maintained by <a href="https://github.com/hanli32">hanli32</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
