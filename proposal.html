@@ -1,0 +1,100 @@
+    <section class="main-content">
+      <h1>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
+
+<p>We are going to implement a parallel linear solver using preconditioned conjugate gradient algorithm on GPU.</p>
+
+<h1>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h1>
+
+<p>The Poisson equation arises in many applications in computational fluid dynamics, electrostatics, magnetostatics, image processing, etc. Numerical solution of the Poisson equation, through finite element or finite difference discretization, leads to large sparse linear systems usually solved by iterative methods instead of direct methods (Gaussian elimination or Cholesky factorization). The conjugate gradient (CG) algorithm is one of the best known iterative methods for solving linear systems with symmetric, positive definite matrix.   </p>
+
+<p>The CG method can be easily adapted for linear systems with symmetric, semi-definite positive matrix. With a suitable preconditioner, the performance can be dramatically increased. The preconditioned conjugate gradient (PCG) has proven its efficiency and robustness in a wide range of applications. Our goal is to develop a parallel linear solver with an efficient PCG algorithm for the GPU architecture. </p>
+
+<h1>
+<a id="the-challenge" class="anchor" href="#the-challenge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Challenge</h1>
+
+<p>Firstly since we are going to process large but sparse matrix, it is necessary to use a special data structure. It is common to keep only non-zero elements. The challenge here is how to choose a data structure that can not only save space but also take advantage of data locality. Also, with the use of special data structure now each row has different number of elements, as a result we have to design an efficient schedule method but not simply assign one row of matrix to a thread, which may lead to uneven wordload.  </p>
+
+<p>Secondly since the preconditioned conjugate gradient algorithm is an iterative method, it is impossible to parallel different iterations. In each iteration there are several variable updates and some variables are dependent to other variables, for example in order to update variable z we must have a new version of variable a. Our challenge here is how to reduce the time of synchronization.  </p>
+
+<p>In each iteration there two important operations, the first one is inner product and the second one is matrix-vector mulplication. For inner product we plan to use the prefix sum algorithm. The challenge here is how to implement an efficient prefix sum when the size of vector is not the power of 2. For matrix-vector mulplication we can parallel on matrix’s rows and the challenge is how to decide the number of elements each CUDA thread needs to process and the number of threads per CUDA block to better use of GPU resources like shared memory.   </p>
+
+<h1>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Resources</h1>
+
+<p>There are some efficient methods to do sparse matrix-vector mulplication in this paper[1]. Cuda also has a document[2] about how to efficiently parallel prefix sum.  </p>
+
+<p>We are going to use GPUs in GHC machines.</p>
+
+<h1>
+<a id="goals-and-deliverables" class="anchor" href="#goals-and-deliverables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals and Deliverables</h1>
+
+<p>We are going to implement a serial version and parallel version of the preconditioned conjugate gradient algorithm. We plan to speed up the parallel version at least 10x compared to the serial version. We are going to test our implementation on the The University of Florida Sparse Matrix Collection[3] and we hope the performance of our implementation can tie the state-of-the-art library like SuiteSpace.   </p>
+
+<p>We are going to demonstrate our project by plotting speedup and execution time graphs compared to the serial version as well as the state-of-the-art library.   </p>
+
+<h1>
+<a id="platform-choice" class="anchor" href="#platform-choice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform Choice</h1>
+
+<p>We are going to use CUDA framework on both GHC machines and latedays clusters in order to have a low-level control of GPUs and maximize parallelism speedup.</p>
+
+<h1>
+<a id="schedule" class="anchor" href="#schedule" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Schedule</h1>
+
+<h3>
+<a id="april-3rd---apri-9th" class="anchor" href="#april-3rd---apri-9th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 3rd - Apri 9th</h3>
+
+<ul>
+<li>Do more background research.</li>
+<li>Read CUDA documents and get familiar with CUDA optimization.</li>
+</ul>
+
+<h3>
+<a id="april-10th---april-16th" class="anchor" href="#april-10th---april-16th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 10th - April 16th</h3>
+
+<ul>
+<li>Begin serial implementation of the preconditioned conjugate gradient algorithm.</li>
+</ul>
+
+<h3>
+<a id="april-17th---april-23rd" class="anchor" href="#april-17th---april-23rd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 17th - April 23rd</h3>
+
+<ul>
+<li>Finish serial implementation.</li>
+<li>Begin parallel the preconditioned conjugate gradient algorithm.</li>
+</ul>
+
+<h3>
+<a id="april-24th---april-30th" class="anchor" href="#april-24th---april-30th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 24th - April 30th</h3>
+
+<ul>
+<li>Finish a correct parallel implementation.</li>
+<li>Optimize parallel implementation to achieve objective speedup.</li>
+</ul>
+
+<h3>
+<a id="may-1st---may-7th" class="anchor" href="#may-1st---may-7th" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>May 1st - May 7th</h3>
+
+<ul>
+<li>Prepare demos.</li>
+<li>Analyze final results.</li>
+<li>Finish final report.</li>
+</ul>
+
+<h1>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>references</h1>
+
+<ol>
+<li>Bell, Nathan, and Michael Garland. Efficient sparse matrix-vector multiplication on CUDA. Vol. 2. No. 5. Nvidia Technical Report NVR-2008-004, Nvidia Corporation, 2008.</li>
+<li>Harris, Mark, Shubhabrata Sengupta, and John D. Owens. "Parallel prefix sum (scan) with CUDA." GPU gems 3.39 (2007): 851-876.</li>
+<li><a href="http://www.cise.ufl.edu/research/sparse/matrices/">http://www.cise.ufl.edu/research/sparse/matrices/</a></li>
+</ol>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hanli32/15618project">Parallel Linear Solver using PCG</a> is maintained by <a href="https://github.com/hanli32">hanli32</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
