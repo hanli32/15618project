@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#body").load("proposal.html");
+			$("#checkpoint").click(function() {
+				$("#body").load("checkpoint.html");
+			});
+      $("#competition").click(function() {
+        $("#body").load("competition.html");
+      });
+			$("#proposal").click(function() {
+				$("#body").load("proposal.html");
+			});
+		});
+		</script>
     <meta charset="UTF-8">
     <title>Parallel Linear Solver using PCG by hanli32</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +30,7 @@
       <a href="https://github.com/hanli32/15618project" class="btn">View on GitHub</a>
       <a href="https://github.com/hanli32/15618project/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/hanli32/15618project/tarball/master" class="btn">Download .tar.gz</a>
-      <a id="proposal" href="#r" class="btn">Proposal</a>
+      <a id="proposal" href="#" class="btn">Proposal</a>
       <a id="checkpoint" href="#" class="btn">Checkpoint</a>
     </section>
 
