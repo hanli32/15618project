@@ -1,5 +1,3 @@
-// #include <cusp/hyb_matrix.h>
-// 
 #include <cusp/csr_matrix.h>
 #include <cusp/monitor.h>
 #include <cusp/gallery/poisson.h>
@@ -13,19 +11,13 @@
 #include <cusparse.h>
 #include <cublas_v2.h>
 
-/* global variables */
-int M = 0, N = 0, nz = 0, *I, *J;
-float *val;
-const float tol = TOL;
-const int max_iter = 10000;
-
 /**
  * check correctness of solver solution
  * @param  x 
  * @param  b 
  * @return err
  */
-float check_err(float *x, float *b) {
+float check_err(float *x, float *b, int N, int* I, int* J, float* val) {
     float rsum, diff, err = 0.0;
     for (int i = 0; i < N; i++) {
         rsum = 0.0;
@@ -93,8 +85,8 @@ void genTridiag(int *I, int *J, float *val, int N, int nz)
  * cuSPARSE version cg solver
  * @return overall duration
  */
-double cusparse_cg() {
-
+double cusparse_cg(int N, int nz, int* I, int* J, float* val) 
+{
     float *x;
     float *rhs;
     float a, b, na, r0, r1;
@@ -157,7 +149,7 @@ double cusparse_cg() {
 
     k = 1;
 
-    while (r1 > tol * tol && k <= max_iter) {
+    while (r1 > TOL * TOL && k <= MAX_ITER) {
         if (k > 1) {
             b = r1 / r0;
             cublasStatus = cublasSscal(cublasHandle, N, &b, d_p, 1);
@@ -226,10 +218,10 @@ double cusp_cg(LinearOperator& A) {
 
     // set stopping criteria:
     //  iteration_limit    = 100
-    //  relative_tolerance = tol * tol
+    //  relative_tolerance = TOL * TOL
     //  absolute_tolerance = 0
     //  verbose            = true
-    cusp::monitor<float> monitor(b, 100, tol * tol, 0, true);
+    cusp::monitor<float> monitor(b, 100, TOL * TOL, 0, true);
 
     // set preconditioner (identity)
     cusp::identity_operator<float, cusp::device_memory> M(d_A.num_rows, d_A.num_rows);
@@ -251,6 +243,10 @@ int main(int argc, char **argv)
         std::cerr << "Usage: N " << std::endl;
         return 1;
     }
+
+    int M = 0, N = 0, nz = 0, *I, *J;
+    float *val; 
+
     /* Generate a random tridiagonal symmetric matrix in CSR format */
     M = N = std::atoi(argv[1]);//1048576;
     std::cout<<"============== N = "<< N <<" ====================\n";
@@ -261,8 +257,8 @@ int main(int argc, char **argv)
     double* val_double = (double *)malloc(sizeof(double)*nz);
     genTridiag(I, J, val, N, nz);
 
+    /* Generate CUSP matrix data type */
     cusp::csr_matrix<int, float, cusp::host_memory> A(M, N, nz);
-
     for (int i = 0; i < N + 1; i++) {
         A.row_offsets[i] = I[i];
     }
@@ -272,12 +268,12 @@ int main(int argc, char **argv)
         val_double[i] = val[i];
     }
 
-    double cusparse_time = cusparse_cg();
+    double cusparse_time = cusparse_cg(N, nz, I, J, val);
     double cusp_time = cusp_cg(A);
     double serial_time = serial_cg(I, J, val_double, N);
 
     for (int i = 0; i < 5; i++) {
-        cusparse_time = std::min(cusparse_time, cusparse_cg());
+        cusparse_time = std::min(cusparse_time, cusparse_cg(N, nz, I, J, val));
         cusp_time = std::min(cusp_time, cusp_cg(A));
         serial_time = std::min(serial_time, serial_cg(I, J, val_double, N));
     }

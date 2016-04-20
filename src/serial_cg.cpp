@@ -36,7 +36,7 @@ double serial_cg(int* ptr, int* indices, double* data, int N)
 
     double startTime = CycleTimer::currentSeconds();
 
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < MAX_ITER; i++) {
 		matrix_vector(row, ptr, indices, data, p, ap);
 		alpha = rsold / (vector_vector(size, p, ap));
 		vector_scalar(size, p, alpha, alphap);
@@ -55,7 +55,7 @@ double serial_cg(int* ptr, int* indices, double* data, int N)
 	}
 
 	double time_cost = CycleTimer::currentSeconds() - startTime;
-	// printf("%f %f", x[0], x[1]);
+
 	free(ap);
 	free(ax);
 	free(r);
@@ -63,7 +63,6 @@ double serial_cg(int* ptr, int* indices, double* data, int N)
 	free(alphap);
 	free(alphaap);
 	free(rp);
-
 	free(x);
 	free(b);
 
