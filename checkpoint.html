@@ -1,0 +1,91 @@
+<section class="main-content">
+      <h1>
+<a id="work-so-far" class="anchor" href="#work-so-far" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Work So Far</h1>
+
+<p>After we submitted project proposal we did some more background research about conjugate gradient algorithm as well as preconditioned matrix selection. We also did some research on two popular sparse linear algebra libraries CUSP and cuSPARSE, which act as references in our project.  </p>
+
+<p>By now we have designed a  sequential linear solver using conjugate gradient algorithm which takes sparse matrix in CSR format as input. We have tested this sequential version with huge matrix (1000,000 * 1000,000) and it can produce correct result. From implementation we realize parallel matrix-vector multiplication efficiently is the most challenging problem in this project and it will be our main task in the next weeks.  </p>
+
+<p>Meanwhile, we also implemented two GPU parallel versions, based on CUSP and cuSPARSE libraries separately. To get prepared for demo presentation and help ourselves improve performance, we are also in the middle of designing a benchmark testing framework. Currently, the framework program can generate a random tridiagonal symmetric matrix given the input size N, use the same N*N matrix as input for all tested solvers, compare the run time among different implementations, as well as output the info of each iteration. </p>
+
+<h1>
+<a id="exhibits-for-the-parallelism-competition" class="anchor" href="#exhibits-for-the-parallelism-competition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exhibits for the Parallelism Competition</h1>
+
+<p>We will demonstrate graphs about runtime comparison among our paralleled linear solver, sequential linear solver, CUSP and cuSPARSE on matrices with different size from 10 to 1000000.  </p>
+
+<p>We may also demonstrate a demo which takes huge matrix in Matrix Market file format and return correct result in real time.</p>
+
+<h1>
+<a id="goals-and-deliverables" class="anchor" href="#goals-and-deliverables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>goals and deliverables</h1>
+
+<p>In the proposal our goal is to achieve 10x speedup when compared to serial implementation. After experiments we found the state-of-the-art linear algebra libraries can speed up our serial version around 3x. So our new goals is to achieve 3.5-4x speedup compared to serial version and 1.5-2x speedup compared to CUSP library.</p>
+
+<h1>
+<a id="preliminary-results" class="anchor" href="#preliminary-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preliminary Results</h1>
+
+<p>The following chart shows a series of experiment tests for three different versions of CG sovler, namely cuSPARSE, CUSP and serial version. The input matrix ranges from 100*100 to 1000000*1000000. From the result we can see:<br>
+1. When input size is small enough, e.g. less than 10000*10000, gpu accelerated versions are actually slower than serial version. However, as matrix grows bigger and bigger, the advantage of parallelism becomes increasingly obvious<br>
+2. cuSPARSE is the fastest among three, and at least 2 times faster than CUSP</p>
+
+<p align="center">
+<img align="center" src="https://github.com/hanli32/15618project/blob/gh-pages/images/2.pic.jpg?raw=true"> <br><br>
+<img align="center" src="https://github.com/hanli32/15618project/blob/gh-pages/images/data.png?raw=true">
+</p>
+
+<h1>
+<a id="new-schedule" class="anchor" href="#new-schedule" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>New Schedule</h1>
+
+<h3>
+<a id="april-23" class="anchor" href="#april-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 23</h3>
+
+<ul>
+<li>Parallel sparse matrix-vector multiplication<br>
+</li>
+</ul>
+
+<h3>
+<a id="april-28" class="anchor" href="#april-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 28</h3>
+
+<ul>
+<li>Optimize matrix-vector multiplication<br>
+</li>
+</ul>
+
+<h3>
+<a id="april-30" class="anchor" href="#april-30" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>April 30</h3>
+
+<ul>
+<li>Parallel and optimize vector addition<br>
+</li>
+</ul>
+
+<h3>
+<a id="may-4" class="anchor" href="#may-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>May 4</h3>
+
+<ul>
+<li>Parallel and optimize vector inner-product and vector-scalar multiplication<br>
+</li>
+</ul>
+
+<h3>
+<a id="may-7" class="anchor" href="#may-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>May 7</h3>
+
+<ul>
+<li>Benchmark against CUSP and cuSPARSE<br>
+</li>
+</ul>
+
+<h3>
+<a id="may-9" class="anchor" href="#may-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>May 9</h3>
+
+<ul>
+<li>Prepare presentation and write final report</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/hanli32/html">Html</a> is maintained by <a href="https://github.com/hanli32">hanli32</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
