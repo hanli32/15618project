@@ -1,0 +1,1524 @@
+============== N = 100 ====================
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+iteration =   1, residual = 4.391737e-01
+iteration =   2, residual = 2.995772e-02
+iteration =   3, residual = 2.299886e-03
+iteration =   4, residual = 1.636823e-04
+iteration =   5, residual = 1.099102e-05
+iteration =   6, residual = 7.646529e-07
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+01
+                1       4.391736e-01
+                2       2.995771e-02
+                3       2.299885e-03
+                4       1.636823e-04
+                5       1.099101e-05
+                6       7.646526e-07
+                7       5.907502e-08
+                8       3.824354e-09
+                9       2.581211e-10
+Successfully converged after 9 iterations.
+iteration =   0, residual = 4.391737e-01
+iteration =   1, residual = 2.995771e-02
+iteration =   2, residual = 2.299886e-03
+iteration =   3, residual = 1.636823e-04
+iteration =   4, residual = 1.099102e-05
+iteration =   5, residual = 7.646528e-07
+cusparse_time: 0.738295
+cusp_time: 2.589594
+serial_time: 0.023393
+============== N = 500 ====================
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+iteration =   1, residual = 9.582466e-01
+iteration =   2, residual = 6.905287e-02
+iteration =   3, residual = 5.246222e-03
+iteration =   4, residual = 4.264158e-04
+iteration =   5, residual = 3.556946e-05
+iteration =   6, residual = 3.194627e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+01
+                1       9.582467e-01
+                2       6.905287e-02
+                3       5.246222e-03
+                4       4.264157e-04
+                5       3.556944e-05
+                6       3.194624e-06
+                7       2.809396e-07
+                8       2.385545e-08
+                9       2.067802e-09
+Successfully converged after 9 iterations.
+iteration =   0, residual = 9.582467e-01
+iteration =   1, residual = 6.905287e-02
+iteration =   2, residual = 5.246223e-03
+iteration =   3, residual = 4.264157e-04
+iteration =   4, residual = 3.556945e-05
+iteration =   5, residual = 3.194625e-06
+cusparse_time: 0.738629
+cusp_time: 6.030732
+serial_time: 0.103327
+============== N = 1000 ====================
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+iteration =   1, residual = 1.364412e+00
+iteration =   2, residual = 1.002203e-01
+iteration =   3, residual = 7.874653e-03
+iteration =   4, residual = 6.777227e-04
+iteration =   5, residual = 5.790339e-05
+iteration =   6, residual = 5.453831e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+01
+                1       1.364412e+00
+                2       1.002203e-01
+                3       7.874652e-03
+                4       6.777227e-04
+                5       5.790338e-05
+                6       5.453829e-06
+                7       5.071611e-07
+                8       4.521272e-08
+                9       3.993760e-09
+               10       3.433060e-10
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.364412e+00
+iteration =   1, residual = 1.002203e-01
+iteration =   2, residual = 7.874652e-03
+iteration =   3, residual = 6.777227e-04
+iteration =   4, residual = 5.790339e-05
+iteration =   5, residual = 5.453830e-06
+cusparse_time: 0.815298
+cusp_time: 7.187839
+serial_time: 0.209673
+============== N = 5000 ====================
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+iteration =   1, residual = 3.068286e+00
+iteration =   2, residual = 2.245494e-01
+iteration =   3, residual = 1.875088e-02
+iteration =   4, residual = 1.601251e-03
+iteration =   5, residual = 1.389664e-04
+iteration =   6, residual = 1.299526e-05
+iteration =   7, residual = 1.212155e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+01
+                1       3.068287e+00
+                2       2.245494e-01
+                3       1.875088e-02
+                4       1.601251e-03
+                5       1.389664e-04
+                6       1.299526e-05
+                7       1.212155e-06
+                8       1.144254e-07
+                9       1.115148e-08
+               10       1.071541e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.068286e+00
+iteration =   1, residual = 2.245494e-01
+iteration =   2, residual = 1.875088e-02
+iteration =   3, residual = 1.601251e-03
+iteration =   4, residual = 1.389664e-04
+iteration =   5, residual = 1.299526e-05
+iteration =   6, residual = 1.212155e-06
+cusparse_time: 1.199873
+cusp_time: 7.199664
+serial_time: 1.180350
+============== N = 10000 ====================
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+iteration =   1, residual = 4.339489e+00
+iteration =   2, residual = 3.179216e-01
+iteration =   3, residual = 2.671919e-02
+iteration =   4, residual = 2.309133e-03
+iteration =   5, residual = 2.026103e-04
+iteration =   6, residual = 1.890606e-05
+iteration =   7, residual = 1.741692e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+02
+                1       4.339489e+00
+                2       3.179216e-01
+                3       2.671920e-02
+                4       2.309134e-03
+                5       2.026103e-04
+                6       1.890606e-05
+                7       1.741693e-06
+                8       1.631386e-07
+                9       1.559673e-08
+               10       1.477311e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.339489e+00
+iteration =   1, residual = 3.179217e-01
+iteration =   2, residual = 2.671920e-02
+iteration =   3, residual = 2.309134e-03
+iteration =   4, residual = 2.026104e-04
+iteration =   5, residual = 1.890606e-05
+iteration =   6, residual = 1.741693e-06
+cusparse_time: 1.699832
+cusp_time: 7.176956
+serial_time: 2.297389
+============== N = 50000 ====================
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+iteration =   1, residual = 9.705122e+00
+iteration =   2, residual = 7.088241e-01
+iteration =   3, residual = 5.870260e-02
+iteration =   4, residual = 5.023538e-03
+iteration =   5, residual = 4.347974e-04
+iteration =   6, residual = 4.015972e-05
+iteration =   7, residual = 3.614756e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       2.236068e+02
+                1       9.705122e+00
+                2       7.088241e-01
+                3       5.870260e-02
+                4       5.023539e-03
+                5       4.347975e-04
+                6       4.015973e-05
+                7       3.614756e-06
+                8       3.328201e-07
+                9       3.119474e-08
+               10       2.928771e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 9.705121e+00
+iteration =   1, residual = 7.088242e-01
+iteration =   2, residual = 5.870260e-02
+iteration =   3, residual = 5.023539e-03
+iteration =   4, residual = 4.347974e-04
+iteration =   5, residual = 4.015973e-05
+iteration =   6, residual = 3.614757e-06
+cusparse_time: 6.018299
+cusp_time: 13.414973
+serial_time: 11.623483
+============== N = 100000 ====================
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+iteration =   1, residual = 1.371934e+01
+iteration =   2, residual = 1.003327e+00
+iteration =   3, residual = 8.321773e-02
+iteration =   4, residual = 7.125952e-03
+iteration =   5, residual = 6.135503e-04
+iteration =   6, residual = 5.681063e-05
+iteration =   7, residual = 5.147311e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       3.162278e+02
+                1       1.371934e+01
+                2       1.003326e+00
+                3       8.321772e-02
+                4       7.125952e-03
+                5       6.135503e-04
+                6       5.681063e-05
+                7       5.147311e-06
+                8       4.796854e-07
+                9       4.561852e-08
+               10       4.336727e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 1.371934e+01
+iteration =   1, residual = 1.003326e+00
+iteration =   2, residual = 8.321772e-02
+iteration =   3, residual = 7.125952e-03
+iteration =   4, residual = 6.135503e-04
+iteration =   5, residual = 5.681064e-05
+iteration =   6, residual = 5.147311e-06
+cusparse_time: 11.358565
+cusp_time: 21.347786
+serial_time: 24.266322
+============== N = 500000 ====================
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+iteration =   1, residual = 3.070059e+01
+iteration =   2, residual = 2.243100e+00
+iteration =   3, residual = 1.861845e-01
+iteration =   4, residual = 1.597922e-02
+iteration =   5, residual = 1.380624e-03
+iteration =   6, residual = 1.278718e-04
+iteration =   7, residual = 1.168848e-05
+iteration =   8, residual = 1.096352e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       7.071068e+02
+                1       3.070059e+01
+                2       2.243100e+00
+                3       1.861846e-01
+                4       1.597922e-02
+                5       1.380624e-03
+                6       1.278719e-04
+                7       1.168849e-05
+                8       1.096353e-06
+                9       1.045560e-07
+               10       9.946644e-09
+Successfully converged after 10 iterations.
+iteration =   0, residual = 3.070059e+01
+iteration =   1, residual = 2.243100e+00
+iteration =   2, residual = 1.861846e-01
+iteration =   3, residual = 1.597922e-02
+iteration =   4, residual = 1.380624e-03
+iteration =   5, residual = 1.278719e-04
+iteration =   6, residual = 1.168849e-05
+iteration =   7, residual = 1.096353e-06
+cusparse_time: 61.363880
+cusp_time: 84.478272
+serial_time: 135.871972
+============== N = 1000000 ====================
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 1e-10 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+iteration =   1, residual = 4.344257e+01
+iteration =   2, residual = 3.171517e+00
+iteration =   3, residual = 2.631414e-01
+iteration =   4, residual = 2.257963e-02
+iteration =   5, residual = 1.950267e-03
+iteration =   6, residual = 1.805867e-04
+iteration =   7, residual = 1.657268e-05
+iteration =   8, residual = 1.562932e-06
+Solver will continue until residual norm 9.999999e-11 or reaching 100 iterations 
+  Iteration Number  | Residual Norm
+                0       1.000000e+03
+                1       4.344257e+01
+                2       3.171517e+00
+                3       2.631415e-01
+                4       2.257963e-02
+                5       1.950267e-03
+                6       1.805867e-04
+                7       1.657268e-05
+                8       1.562932e-06
+                9       1.503083e-07
+               10       1.442248e-08
+Successfully converged after 10 iterations.
+iteration =   0, residual = 4.344258e+01
+iteration =   1, residual = 3.171517e+00
+iteration =   2, residual = 2.631415e-01
+iteration =   3, residual = 2.257963e-02
+iteration =   4, residual = 1.950267e-03
+iteration =   5, residual = 1.805867e-04
+iteration =   6, residual = 1.657268e-05
+iteration =   7, residual = 1.562932e-06
+cusparse_time: 63.814620
+cusp_time: 85.327007
+serial_time: 272.223917
