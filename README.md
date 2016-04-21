@@ -6,3 +6,4 @@
 2. specialization
 3. (extra) more compression methods
 4. beat open source version
+5. Analysis bottleneck
