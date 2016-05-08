@@ -2,52 +2,46 @@
 #include "CycleTimer.h"
 
 int32_t main(int32_t agrc, char* argv[]) {
-    uint32_t N = atoi(argv[1]);
-    setup(N);
+    setup();
 
     double startTime = CycleTimer::currentSeconds();
     multi_kernel(cuda_vectorX);
     axpby();
+    rsold = inner_prod(cuda_r, cuda_r, numRows);
     size_t numBytes = numRows * sizeof(float);
     cudaMemcpy(cuda_p, cuda_r, numBytes, cudaMemcpyDeviceToDevice);
-    cudaMemcpy(r, cuda_r, numBytes, cudaMemcpyDeviceToHost);
-    rsold = thrust::inner_product(r, r + numRows, r, 0.0f);
+
     uint32_t i;
     for (i = 0; i < numRows; i++) {
         multi_kernel(cuda_p);
-        cudaMemcpy(vectorY, cuda_vectorY, numBytes, cudaMemcpyDeviceToHost);
-        cudaMemcpy(p, cuda_p, numBytes, cudaMemcpyDeviceToHost);
-        alpha = rsold / thrust::inner_product(vectorY, vectorY + numRows, r, 0.0f);
+        alpha = rsold / inner_prod(cuda_vectorY, cuda_r, numRows);
         axpy(cuda_p, cuda_vectorX, alpha);
         axpy(cuda_vectorY, cuda_r, -alpha);
-	    cudaMemcpy(r, cuda_r, numBytes, cudaMemcpyDeviceToHost);
-        rsnew = thrust::inner_product(r, r + numRows, r, 0.0f);
-        if (rsnew < 1e-5)
-	    break;
+        rsnew = inner_prod(cuda_r, cuda_r, numRows);
+        printf("Iteration %d: %f\n", i, rsnew);
+        if (rsnew < 1e-10)
+        break;
         axby(cuda_r, cuda_p, rsnew / rsold);
         rsold = rsnew;
     }
+    printf("Total iteration: %d\n", i);
     double time_cost = CycleTimer::currentSeconds() - startTime;
-    printf("The row number is %d\n", N);
     printf("Total time: %.3f ms\n", time_cost * 1000.f);
-    
-    //multi_kernel(cuda_vectorX);
-    //cudaMemcpy(vectorY, cuda_vectorY, numBytes, cudaMemcpyDeviceToHost);
-    //printf("final b: %f %f %f\n", vectorY[0], vectorY[1], vectorY[2]);
+
     //store();
     freekernel();
 
     return 0;
 }
 
-void setup(uint32_t N) {
+void setup() {
     int deviceCount = 0;
     string name;
     cudaGetDeviceCount(&deviceCount);
 
-    //printf("---------------------------------------------------------\n");
-    //printf("Initializing CUDA for CudaRenderer\n");
-    //printf("Found %d CUDA devices\n", deviceCount);
+    printf("---------------------------------------------------------\n");
+    printf("Initializing CUDA for CudaRenderer\n");
+    printf("Found %d CUDA devices\n", deviceCount);
 
     for (int i=0; i<deviceCount; i++) {
         cudaDeviceProp deviceProps;
@@ -56,15 +50,15 @@ void setup(uint32_t N) {
         numThreadsPerBlock = deviceProps.maxThreadsPerBlock;
         numThreadBlocks = deviceProps.multiProcessorCount * 
             (deviceProps.maxThreadsPerMultiProcessor / numThreadsPerBlock);
-        //printf("blocks %d\n", numThreadBlocks);
-        //printf("Device %d: %s\n", i, deviceProps.name);
-        //printf("   SMs:        %d\n", deviceProps.multiProcessorCount);
-        //printf("   Global mem: %.0f MB\n", static_cast<float>(deviceProps.totalGlobalMem) / (1024 * 1024));
-        //printf("   CUDA Cap:   %d.%d\n", deviceProps.major, deviceProps.minor);
+
+        printf("Device %d: %s\n", i, deviceProps.name);
+        printf("   SMs:        %d\n", deviceProps.multiProcessorCount);
+        printf("   Global mem: %.0f MB\n", static_cast<float>(deviceProps.totalGlobalMem) / (1024 * 1024));
+        printf("   CUDA Cap:   %d.%d\n", deviceProps.major, deviceProps.minor);
     }
     printf("---------------------------------------------------------\n");
 
-    numRows = numCols = N;
+    numRows = numCols = 1000000;
     numValues = (numRows - 2) * 3 + 4;
     row_offsets = new uint32_t[numRows + 1];
     column_indices = new uint32_t[numValues];
@@ -111,6 +105,9 @@ void setup(uint32_t N) {
 
     cudaMalloc(&cuda_p, numBytes);
     cudaMemcpy(cuda_p, p, numBytes, cudaMemcpyHostToDevice);
+
+    cudaMalloc(&cuda_input_vector, numBytes);
+    cudaMalloc(&cuda_output_vector, 1024*sizeof(float));
 }
 
 void multi_kernel(float *x) {
@@ -246,8 +243,9 @@ __global__ void mvDynamicWarp(const uint32_t* __restrict cuda_rowOffsets,
 }
 
 void axpby() {
-    axpbykernel<<<numThreadBlocks, numThreadsPerBlock>>>
-        (cuda_b, cuda_vectorY, cuda_r);
+    int blocks = divup(numRows, numThreadsPerBlock);
+    axpbykernel<<<blocks, numThreadsPerBlock>>>
+                          (cuda_b, cuda_vectorY, cuda_r);
     cudaError_t err = cudaThreadSynchronize();
     if (err != cudaSuccess)
         printf("kernel launch failed with error \"%s\".\n",
@@ -255,7 +253,7 @@ void axpby() {
 }
 
 __global__ void axpbykernel(const float* __restrict cuda_b, const float* __restrict cuda_vectorY,
-        float* cuda_r)
+                            float* cuda_r)
 {
     uint32_t index = blockIdx.x * blockDim.x + threadIdx.x;
 
@@ -264,8 +262,9 @@ __global__ void axpbykernel(const float* __restrict cuda_b, const float* __restr
 }
 
 void axpy(float* p, float* x, float alpha) {
-    axpykernel<<<numThreadBlocks, numThreadsPerBlock>>>
-        (p, x, alpha);
+    int blocks = divup(numRows, numThreadsPerBlock);
+    axpykernel<<<blocks, numThreadsPerBlock>>>
+                         (p, x, alpha);
     cudaError_t err = cudaThreadSynchronize();
     if (err != cudaSuccess)
         printf("kernel launch failed with error \"%s\".\n",
@@ -273,7 +272,7 @@ void axpy(float* p, float* x, float alpha) {
 }
 
 __global__ void axpykernel(const float* __restrict p, float* x,
-        float alpha)
+                           float alpha)
 {
     uint32_t index = blockIdx.x * blockDim.x + threadIdx.x;
 
@@ -282,8 +281,9 @@ __global__ void axpykernel(const float* __restrict p, float* x,
 }
 
 void axby(float* p, float* x, float alpha) {
-    axbykernel<<<numThreadBlocks, numThreadsPerBlock>>>
-        (p, x, alpha);
+    int blocks = divup(numRows, numThreadsPerBlock);
+    axbykernel<<<blocks, numThreadsPerBlock>>>
+                         (p, x, alpha);
     cudaError_t err = cudaThreadSynchronize();
     if (err != cudaSuccess)
         printf("kernel launch failed with error \"%s\".\n",
@@ -291,12 +291,86 @@ void axby(float* p, float* x, float alpha) {
 }
 
 __global__ void axbykernel(const float* __restrict p, float* x,
-        float alpha)
+                           float alpha)
 {
     uint32_t index = blockIdx.x * blockDim.x + threadIdx.x;
 
     if(index < cuda_NumRows)
         x[index] = p[index] + alpha * x[index];
+}
+
+
+
+/* reduce within a warp, result stored in the first thread */
+__inline__ __device__ float warpReduceSum(float val) {
+    for (int offset = 32/2; offset > 0; offset /= 2) {
+        val += __shfl_down(val, offset);
+    }
+    return val;
+}
+
+/* reduce within a block */
+__inline__ __device__ float blockReduceSum(float val) {
+    static __shared__ float shared [1024 / 32];
+    int lane = threadIdx.x % 32;
+    int wid = threadIdx.x / 32;
+    /* each warp performs partial reduction */
+    val = warpReduceSum(val);
+    /* first lane of each warp writes its val to shared mem */
+    if (lane == 0) {
+        shared[wid] = val;
+    }
+    /* wait for all warp shuffles finish */
+    __syncthreads();
+    /* only threads from first warp of the block load shared partial results */
+    val = (threadIdx.x < blockDim.x/32) ? shared[lane] : 0;
+    /* first warp perform final reduction of partial results of all warps */
+    if (wid == 0) {
+        val = warpReduceSum(val);
+    }
+    return val;
+}
+
+/* reduce within a device */
+__global__ void deviceReduceKernel(float* input, float* output, int numRows) {
+    float sum = 0;
+    int index = blockIdx.x * blockDim.x + threadIdx.x;
+    for (int i = index; i < numRows; i += blockDim.x * gridDim.x) {
+        sum += input[i];
+    }
+    sum = blockReduceSum(sum);
+    if (threadIdx.x == 0) {
+        output[blockIdx.x] = sum;
+    }
+}
+
+__global__ void inner_prod_kernel(float* vector1, float* vector2, float* cuda_input_vector) {
+    uint32_t index = blockIdx.x * blockDim.x + threadIdx.x;
+    if(index < cuda_NumRows) {
+        cuda_input_vector[index] = vector1[index] * vector2[index];
+    }
+}
+
+float inner_prod(float *vector1, float *vector2, uint32_t numRows) {
+    float inner_product;
+    /* phase 1: multiplication */
+    int blocks = divup(numRows, numThreadsPerBlock);
+    inner_prod_kernel<<<blocks, numThreadsPerBlock>>>(vector1, vector2, cuda_input_vector);
+    cudaThreadSynchronize();
+    /* phase 2: cross-block device reduction */
+    int threads = 1024;
+    blocks = min((numRows + threads - 1) / threads, 1024); // guarantee second reduction can be done within one block
+
+    deviceReduceKernel<<<blocks, threads>>>(cuda_input_vector, cuda_output_vector, numRows);
+    cudaThreadSynchronize();
+    deviceReduceKernel<<<1, 1024>>>(cuda_output_vector, cuda_output_vector, blocks);
+    cudaThreadSynchronize();
+
+    cudaMemcpy(&inner_product, cuda_output_vector, sizeof(float), cudaMemcpyDeviceToHost);
+
+    printf("inner_product = %f\n", inner_product);
+
+    return inner_product;
 }
 
 /* genTridiag: generate a random tridiagonal symmetric matrix */
