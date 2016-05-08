@@ -1,8 +1,17 @@
 #include "main.h"
 #include "CycleTimer.h"
 
-int32_t main(int32_t agrc, char* argv[]) {
-    setup();
+int32_t main(int32_t argc, char* argv[]) {
+    // Check the number of parameters
+    if (argc < 2) {
+        // Tell the user how to run the program
+        std::cerr << "Usage: N " << std::endl;
+        return 1;
+    }
+
+    int N = std::atoi(argv[1]);
+
+    setup(N);
 
     double startTime = CycleTimer::currentSeconds();
     multi_kernel(cuda_vectorX);
@@ -34,7 +43,7 @@ int32_t main(int32_t agrc, char* argv[]) {
     return 0;
 }
 
-void setup() {
+void setup(int N) {
     int deviceCount = 0;
     string name;
     cudaGetDeviceCount(&deviceCount);
@@ -58,7 +67,7 @@ void setup() {
     }
     printf("---------------------------------------------------------\n");
 
-    numRows = numCols = 1000000;
+    numRows = numCols = N;
     numValues = (numRows - 2) * 3 + 4;
     row_offsets = new uint32_t[numRows + 1];
     column_indices = new uint32_t[numValues];
@@ -356,15 +365,13 @@ float inner_prod(float *vector1, float *vector2, uint32_t numRows) {
     /* phase 1: multiplication */
     int blocks = divup(numRows, numThreadsPerBlock);
     inner_prod_kernel<<<blocks, numThreadsPerBlock>>>(vector1, vector2, cuda_input_vector);
-    cudaThreadSynchronize();
+    
     /* phase 2: cross-block device reduction */
     int threads = 1024;
     blocks = min((numRows + threads - 1) / threads, 1024); // guarantee second reduction can be done within one block
 
     deviceReduceKernel<<<blocks, threads>>>(cuda_input_vector, cuda_output_vector, numRows);
-    cudaThreadSynchronize();
     deviceReduceKernel<<<1, 1024>>>(cuda_output_vector, cuda_output_vector, blocks);
-    cudaThreadSynchronize();
 
     cudaMemcpy(&inner_product, cuda_output_vector, sizeof(float), cudaMemcpyDeviceToHost);
 

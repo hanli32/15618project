@@ -52,7 +52,7 @@ float* cuda_output_vector;
 __constant__ uint32_t cuda_NumRows;
 __constant__ uint32_t cuda_NumCols;
 
-void setup();
+void setup(int N);
 void multi_kernel(float* x);
 void freekernel();
 void store();
