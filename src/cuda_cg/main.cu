@@ -368,7 +368,7 @@ float inner_prod(float *vector1, float *vector2, uint32_t numRows) {
 
     cudaMemcpy(&inner_product, cuda_output_vector, sizeof(float), cudaMemcpyDeviceToHost);
 
-    printf("inner_product = %f\n", inner_product);
+    // printf("inner_product = %f\n", inner_product);
 
     return inner_product;
 }
