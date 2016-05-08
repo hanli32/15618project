@@ -27,7 +27,7 @@ int32_t main(int32_t argc, char* argv[]) {
         axpy(cuda_p, cuda_vectorX, alpha);
         axpy(cuda_vectorY, cuda_r, -alpha);
         rsnew = inner_prod(cuda_r, cuda_r, numRows);
-        printf("Iteration %d: %f\n", i, rsnew);
+        printf("Iteration %d: %f\n", i, sqrt(rsnew));
         if (rsnew < 1e-10)
         break;
         axby(cuda_r, cuda_p, rsnew / rsold);
@@ -35,7 +35,7 @@ int32_t main(int32_t argc, char* argv[]) {
     }
     printf("Total iteration: %d\n", i);
     double time_cost = CycleTimer::currentSeconds() - startTime;
-    printf("Total time: %.3f ms\n", time_cost * 1000.f);
+    printf("Total time: %f ms\n", time_cost * 1000.f);
 
     //store();
     freekernel();
