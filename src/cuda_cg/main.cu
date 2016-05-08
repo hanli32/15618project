@@ -27,7 +27,7 @@ int32_t main(int32_t argc, char* argv[]) {
         axpy(cuda_p, cuda_vectorX, alpha);
         axpy(cuda_vectorY, cuda_r, -alpha);
         rsnew = inner_prod(cuda_r, cuda_r, numRows);
-        printf("Iteration %d: %f\n", i, sqrt(rsnew));
+        printf("Iteration %d: %e\n", i, sqrt(rsnew));
         if (rsnew < 1e-10)
         break;
         axby(cuda_r, cuda_p, rsnew / rsold);
