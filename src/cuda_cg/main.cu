@@ -1,17 +1,47 @@
 #include "main.h"
 #include "CycleTimer.h"
 
+
 int32_t main(int32_t argc, char* argv[]) {
+
+    int N = 0;
+    int c;
+    extern char *optarg;
+    char *mmFileName;
+    MatrixType matrix;
+
     // Check the number of parameters
     if (argc < 2) {
         // Tell the user how to run the program
-        std::cerr << "Usage: N " << std::endl;
+        printUsage();
         return 1;
     }
 
-    int N = std::atoi(argv[1]);
+    while ((c = getopt(argc, argv, "i:n:\n")) != -1) {
+        switch (c) {
+        case 'i':
+            mmFileName = optarg;
+            cusp::io::read_matrix_market_file(matrix, mmFileName);
+            load_mm_file(matrix);
+            break;
+        case 'n':
+            N = std::atoi(optarg);
+            generate_matrix(N);
+            break;
+        default:
+            cerr << "Unknown parameter: " << optarg << endl;
+            return false;
+        }
+    }
 
-    setup(N);
+    setup();
+
+    for (int i = 0; i < 10; ++i)
+    {
+        printf("row_offsets[%d]: %d, ", i, row_offsets[i]);
+        printf("column_indices[%d]: %d, ", i, column_indices[i]);
+        printf("values[%d]: %f\n", i, values[i]);
+    }
 
     double startTime = CycleTimer::currentSeconds();
     multi_kernel(cuda_vectorX);
@@ -43,7 +73,49 @@ int32_t main(int32_t argc, char* argv[]) {
     return 0;
 }
 
-void setup(int N) {
+void printUsage() {
+    cerr << endl
+            << "Cuda_CG"
+            << ": GPU-Accelerated Conjugate Gradient Solver using CSR storate format"
+            << endl;
+    cerr << "Usage: gpu_test -i matrix [options]" << endl << endl;
+    cerr << "Input:" << endl
+            << "\t-i <string> sparse matrix A file (in Matrix Market format)"
+            << endl
+            << "\t-n <string> random generate n*n matrix"
+            << endl << endl;
+}
+
+void load_mm_file(MatrixType matrix) {
+    numRows = numCols = matrix.num_rows;
+    numValues = matrix.num_entries;
+
+    row_offsets = new uint32_t[numRows + 1];
+    column_indices = new uint32_t[numValues];
+    values = new float[numValues];
+
+    for (int i = 0; i < numRows + 1; ++i)
+    {
+        row_offsets[i] = matrix.row_offsets[i];
+    }
+    for (int i = 0; i < numValues; ++i)
+    {
+        column_indices[i] = matrix.column_indices[i];
+        values[i] = matrix.values[i];
+    }
+}
+
+void generate_matrix(int N) {
+    numRows = numCols = N;
+    numValues = (numRows - 2) * 3 + 4;
+    row_offsets = new uint32_t[numRows + 1];
+    column_indices = new uint32_t[numValues];
+    values = new float[numValues];
+    /* random generate */
+    genTridiag(row_offsets, column_indices, values, numRows, numValues);
+}
+
+void setup() {
     int deviceCount = 0;
     string name;
     cudaGetDeviceCount(&deviceCount);
@@ -67,13 +139,6 @@ void setup(int N) {
     }
     printf("---------------------------------------------------------\n");
 
-    numRows = numCols = N;
-    numValues = (numRows - 2) * 3 + 4;
-    row_offsets = new uint32_t[numRows + 1];
-    column_indices = new uint32_t[numValues];
-    values = new float[numValues];
-
-    genTridiag(row_offsets, column_indices, values, numRows, numValues);
     vectorX = new float[numRows]();
     vectorY = new float[numRows]();
     b = new float[numRows];

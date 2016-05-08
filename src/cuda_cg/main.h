@@ -10,9 +10,14 @@
 #include <vector>
 #include <iostream>
 #include <thrust/inner_product.h>
+#include <cusp/io/matrix_market.h>
+#include <cusp/csr_matrix.h>
+
 using namespace std;
 
 #define MAX_THREAD_PER_BLOCK    1024
+
+typedef cusp::csr_matrix<uint32_t, float, cusp::host_memory> MatrixType;
 
 int32_t numThreadsPerBlock;
 int32_t numThreadBlocks;
@@ -52,7 +57,7 @@ float* cuda_output_vector;
 __constant__ uint32_t cuda_NumRows;
 __constant__ uint32_t cuda_NumCols;
 
-void setup(int N);
+void setup();
 void multi_kernel(float* x);
 void freekernel();
 void store();
@@ -61,6 +66,9 @@ void axpy(float* p, float* x, float alpha);
 void axby(float* p, float* x, float alpha);
 void genTridiag(uint32_t *I, uint32_t *J, float *val, uint32_t N, uint32_t nz);
 float inner_prod(float *vector1, float *vector2, uint32_t numRows);
+void printUsage();
+void load_mm_file(MatrixType matrix);
+void generate_matrix(int N);
 
 template <uint32_t THREADS_PER_VECTOR, uint32_t MAX_NUM_VECTORS_PER_BLOCK>
 __global__ void mvDynamicWarp(const uint32_t* __restrict cuda_rowOffsets, 
