@@ -35,7 +35,7 @@ int32_t main(int32_t argc, char* argv[]) {
     }
     printf("Total iteration: %d\n", i);
     double time_cost = CycleTimer::currentSeconds() - startTime;
-    printf("Total time: %f ms\n", time_cost * 1000.f);
+    printf("Total time: %f\n", time_cost * 1000.f);
 
     //store();
     freekernel();
