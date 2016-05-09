@@ -245,7 +245,7 @@ double cusp_cg(LinearOperator& A) {
     //  relative_tolerance = TOL * TOL
     //  absolute_tolerance = 0
     //  verbose            = true
-    cusp::monitor<float> monitor(b, 100, TOL * TOL, 0, true);
+    cusp::monitor<float> monitor(b, MAX_ITER, TOL * TOL, 0, true);
 
     // set preconditioner (identity)
     cusp::identity_operator<float, cusp::device_memory> M(d_A.num_rows, d_A.num_rows);

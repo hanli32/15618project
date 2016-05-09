@@ -50,7 +50,7 @@ int32_t main(int32_t argc, char* argv[]) {
     cudaMemcpy(cuda_p, cuda_r, numBytes, cudaMemcpyDeviceToDevice);
 
     uint32_t i;
-    for (i = 0; i < numRows; i++) {
+    for (i = 0; i < 1000; i++) {
         multi_kernel(cuda_p);
         alpha = rsold / inner_prod(cuda_vectorY, cuda_r, numRows);
         axpy(cuda_p, cuda_vectorX, alpha);

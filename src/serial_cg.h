@@ -1,5 +1,5 @@
 #define TOL 1e-5f
-#define MAX_ITER 10000
+#define MAX_ITER 1000
 #define TEST_ROUND 2
 
 
