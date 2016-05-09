@@ -173,10 +173,7 @@ double cusparse_cg()
 
     k = 1;
 
-    printf("r1 = %f\n", r1);
-    
     while (r1 > TOL * TOL && k <= MAX_ITER) {
-        printf("r1 = %f\n", r1);
 
         if (k > 1) {
             b = r1 / r0;
