@@ -15,7 +15,7 @@
 #include <cublas_v2.h>
 using namespace std;
 
-typedef cusp::csr_matrix<int, float, cusp::host_memory> MatrixType;
+typedef cusp::csr_matrix<uint32_t, float, cusp::host_memory> MatrixType;
 int *I;
 int *J;
 float *val;
@@ -283,7 +283,7 @@ void generate_matrix() {
     genTridiag();
 }
 
-void load_mm_file(MatrixType matrix) {
+void load_mm_file(MatrixType matrix, char* mmFileName) {
     int numRows = matrix.num_rows;
     int numCols = matrix.num_rows;
     int numValues = matrix.num_entries;
@@ -303,6 +303,21 @@ void load_mm_file(MatrixType matrix) {
         val[i] = matrix.values[i];
         val_double[i] = matrix.values[i];
     }
+
+    double mean = numValues * 1.0 / numRows;
+    double variance = 0;
+    for (int i = 0; i < numRows; ++i)
+    {
+        int num_value_row = I[i + 1] - I[i];
+        variance += (num_value_row - mean) * (num_value_row - mean);
+    }
+    variance = variance / numRows;
+    printf("-------------- Matrix Statistics ------------------------\n\n");
+    printf("name: %s\n", mmFileName);
+    printf("numRows: %d\n", numRows);
+    printf("mean: %f\n", mean);
+    printf("variance: %f\n", variance);
+    printf("---------------------------------------------------------\n\n");
 }
 
 double cusp_test(MatrixType A) {
@@ -335,7 +350,7 @@ int main(int argc, char **argv)
                 mmFileName = optarg;
                 cusp::io::read_matrix_market_file(matrix, mmFileName);
                 /* copy matrix data to I, J, val */
-                load_mm_file(matrix);
+                load_mm_file(matrix, mmFileName);
                 nz = matrix.num_entries;
                 N = matrix.num_rows;
                 /* test cusp separately */

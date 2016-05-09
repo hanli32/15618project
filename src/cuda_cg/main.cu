@@ -21,7 +21,7 @@ int32_t main(int32_t argc, char* argv[]) {
             case 'i':
                 mmFileName = optarg;
                 cusp::io::read_matrix_market_file(matrix, mmFileName);
-                load_mm_file(matrix);
+                load_mm_file(matrix, mmFileName);
                 break;
             case 'n':
                 N = std::atoi(optarg);
@@ -35,12 +35,12 @@ int32_t main(int32_t argc, char* argv[]) {
 
     setup();
 
-    for (int i = 0; i < 10; ++i)
-    {
-        printf("row_offsets[%d]: %d, ", i, row_offsets[i]);
-        printf("column_indices[%d]: %d, ", i, column_indices[i]);
-        printf("values[%d]: %f\n", i, values[i]);
-    }
+    // for (int i = 0; i < 10; ++i)
+    // {
+    //     printf("row_offsets[%d]: %d, ", i, row_offsets[i]);
+    //     printf("column_indices[%d]: %d, ", i, column_indices[i]);
+    //     printf("values[%d]: %f\n", i, values[i]);
+    // }
 
     double startTime = CycleTimer::currentSeconds();
     multi_kernel(cuda_vectorX);
@@ -85,7 +85,7 @@ void printUsage() {
             << endl << endl;
 }
 
-void load_mm_file(MatrixType matrix) {
+void load_mm_file(MatrixType matrix, char* mmFileName) {
     numRows = numCols = matrix.num_rows;
     numValues = matrix.num_entries;
 
@@ -102,6 +102,21 @@ void load_mm_file(MatrixType matrix) {
         column_indices[i] = matrix.column_indices[i];
         values[i] = matrix.values[i];
     }
+    
+    double mean = numValues * 1.0 / numRows;
+    double variance = 0;
+    for (int i = 0; i < numRows; ++i)
+    {
+        int num_value_row = row_offsets[i + 1] - row_offsets[i];
+        variance += (num_value_row - mean) * (num_value_row - mean);
+    }
+    variance = variance / numRows;
+    printf("-------------- Matrix Statistics ------------------------\n\n");
+    printf("name: %s\n", mmFileName);
+    printf("numRows: %d\n", numRows);
+    printf("mean: %f\n", mean);
+    printf("variance: %f\n", variance);
+    printf("---------------------------------------------------------\n\n");
 }
 
 void generate_matrix(int N) {

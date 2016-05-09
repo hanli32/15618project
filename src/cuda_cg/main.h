@@ -67,7 +67,7 @@ void axby(float* p, float* x, float alpha);
 void genTridiag(uint32_t *I, uint32_t *J, float *val, uint32_t N, uint32_t nz);
 float inner_prod(float *vector1, float *vector2, uint32_t numRows);
 void printUsage();
-void load_mm_file(MatrixType matrix);
+void load_mm_file(MatrixType matrix, char* mmFileName);
 void generate_matrix(int N);
 
 template <uint32_t THREADS_PER_VECTOR, uint32_t MAX_NUM_VECTORS_PER_BLOCK>
