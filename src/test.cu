@@ -1,8 +1,11 @@
 #include <cusp/csr_matrix.h>
+#include <cusp/io/matrix_market.h>
 #include <cusp/monitor.h>
 #include <cusp/gallery/poisson.h>
 #include <cusp/krylov/cg.h>
 #include <iostream>
+#include <unistd.h>
+
 #include "CycleTimer.h"
 #include "serial_cg.h"
 
@@ -10,6 +13,15 @@
 #include <cuda_runtime.h>
 #include <cusparse.h>
 #include <cublas_v2.h>
+using namespace std;
+
+typedef cusp::csr_matrix<int, float, cusp::host_memory> MatrixType;
+int *I;
+int *J;
+float *val;
+double *val_double;
+int N;
+int nz;
 
 /**
  * check correctness of solver solution
@@ -17,7 +29,7 @@
  * @param  b 
  * @return err
  */
-float check_err(float *x, float *b, int N, int* I, int* J, float* val) {
+float check_err(float *x, float *b) {
     float rsum, diff, err = 0.0;
     for (int i = 0; i < N; i++) {
         rsum = 0.0;
@@ -43,7 +55,8 @@ float check_err(float *x, float *b, int N, int* I, int* J, float* val) {
  * @param N   matrix row/col size
  * @param nz  nonzero size
  */
-void genTridiag(int *I, int *J, float *val, int N, int nz)
+// void genTridiag(int *I, int *J, float *val, int N, int nz)
+void genTridiag()
 {
     I[0] = 0, J[0] = 0, J[1] = 1;
     val[0] = (float)rand()/RAND_MAX + 10.0f;
@@ -85,7 +98,7 @@ void genTridiag(int *I, int *J, float *val, int N, int nz)
  * cuSPARSE version cg solver
  * @return overall duration
  */
-double cusparse_cg(int N, int nz, int* I, int* J, float* val) 
+double cusparse_cg()
 {
     float *x;
     float *rhs;
@@ -103,6 +116,17 @@ double cusparse_cg(int N, int nz, int* I, int* J, float* val)
         rhs[i] = 1.0;
         x[i] = 0.0;
     }
+
+    // //DEBUG
+    // for (int i = 0; i < N + 1; ++i)
+    // {
+    //     printf("I[%d] = %d\n", i, I[i]);
+    // }
+    // for (int i = 0; i < nz; ++i)
+    // {
+    //     printf("J[%d] = %d\n", i, J[i]);
+    //     printf("val[%d] = %f\n", i, val[i]);
+    // }
 
     /* Get handle to the CUBLAS context */
     cublasHandle_t cublasHandle = 0;
@@ -149,7 +173,11 @@ double cusparse_cg(int N, int nz, int* I, int* J, float* val)
 
     k = 1;
 
+    printf("r1 = %f\n", r1);
+    
     while (r1 > TOL * TOL && k <= MAX_ITER) {
+        printf("r1 = %f\n", r1);
+
         if (k > 1) {
             b = r1 / r0;
             cublasStatus = cublasSscal(cublasHandle, N, &b, d_p, 1);
@@ -200,7 +228,6 @@ double cusparse_cg(int N, int nz, int* I, int* J, float* val)
     // flushed before the application exits
     cudaDeviceReset();
 
-    // printf("Test Summary:  Error amount = %f\n", err);
     return time_cost;
 }
 
@@ -235,53 +262,128 @@ double cusp_cg(LinearOperator& A) {
     return time_cost;
 }
 
+void printUsage() {
+    cerr << endl
+            << "Cuda_CG"
+            << ": GPU-Accelerated Conjugate Gradient Solver using CSR storate format"
+            << endl;
+    cerr << "Usage: gpu_test -i matrix [options]" << endl << endl;
+    cerr << "Input:" << endl
+            << "\t-i <string> sparse matrix A file (in Matrix Market format)"
+            << endl
+            << "\t-n <string> random generate n*n matrix"
+            << endl << endl;
+}
+
+void generate_matrix() {
+    /* Generate a random tridiagonal symmetric matrix in CSR format */
+    std::cout<<"============== N = "<< N <<" ====================\n";
+    
+    I = new int[N + 1];
+    J = new int[nz];
+    val = new float[nz];
+    val_double = new double[nz];
+    genTridiag();
+}
+
+void load_mm_file(MatrixType matrix) {
+    int numRows = matrix.num_rows;
+    int numCols = matrix.num_rows;
+    int numValues = matrix.num_entries;
+
+    I = new int[numRows + 1];
+    J = new int[numValues];
+    val = new float[numValues];
+    val_double = new double[numValues];
+
+    for (int i = 0; i < numRows + 1; ++i)
+    {
+        I[i] = matrix.row_offsets[i];
+    }
+    for (int i = 0; i < numValues; ++i)
+    {
+        J[i] = matrix.column_indices[i];
+        val[i] = matrix.values[i];
+        val_double[i] = matrix.values[i];
+    }
+}
+
+double cusp_test(MatrixType A) {
+    double cusp_time = cusp_cg(A);
+    for (int i = 0; i < TEST_ROUND; i++) {
+        cusp_time = std::min(cusp_time, cusp_cg(A));
+    }
+    return cusp_time;
+}
+
 int main(int argc, char **argv)
 {
+    int c;
+    extern char *optarg;
+    char *mmFileName;
+    MatrixType matrix;
+    
+    double cusparse_time, cusp_time, serial_time;
+   
     // Check the number of parameters
     if (argc < 2) {
         // Tell the user how to run the program
-        std::cerr << "Usage: N " << std::endl;
+        printUsage();
         return 1;
     }
 
-    int M = 0, N = 0, nz = 0, *I, *J;
-    float *val; 
-
-    /* Generate a random tridiagonal symmetric matrix in CSR format */
-    M = N = std::atoi(argv[1]);//1048576;
-    std::cout<<"============== N = "<< N <<" ====================\n";
-    nz = (N-2)*3 + 4;
-    I = (int *)malloc(sizeof(int)*(N+1));
-    J = (int *)malloc(sizeof(int)*nz);
-    val = (float *)malloc(sizeof(float)*nz);
-    double* val_double = (double *)malloc(sizeof(double)*nz);
-    genTridiag(I, J, val, N, nz);
-
-    /* Generate CUSP matrix data type */
-    cusp::csr_matrix<int, float, cusp::host_memory> A(M, N, nz);
-    for (int i = 0; i < N + 1; i++) {
-        A.row_offsets[i] = I[i];
+    while ((c = getopt(argc, argv, "i:n:\n")) != -1) {
+        switch (c) {
+            case 'i':
+                mmFileName = optarg;
+                cusp::io::read_matrix_market_file(matrix, mmFileName);
+                /* copy matrix data to I, J, val */
+                load_mm_file(matrix);
+                nz = matrix.num_entries;
+                N = matrix.num_rows;
+                /* test cusp separately */
+                cusp_time = cusp_test(matrix);
+                break;
+            case 'n':
+            {
+                N = std::atoi(optarg);
+                /* generate matrix data for I, J, val */
+                nz = (N-2)*3 + 4;
+                generate_matrix();
+                /* copy matrix data to cusp matrix */
+                MatrixType A(N, N, nz);
+                for (int i = 0; i < N + 1; i++) {
+                    A.row_offsets[i] = I[i];
+                }
+                for (int i = 0; i < nz; i++) {
+                    A.column_indices[i] = J[i];
+                    A.values[i] = val[i];
+                    val_double[i] = val[i];
+                }
+                /* test cusp separately */
+                cusp_time = cusp_test(A);
+                break;
+            }
+            default:
+                cerr << "Unknown parameter: " << optarg << endl;
+                return false;
+        }
     }
-    for (int i = 0; i < nz; i++) {
-        A.column_indices[i] = J[i];
-        A.values[i] = val[i];
-        val_double[i] = val[i];
+
+    /* test serial cpu time, for once considering time cost */
+    serial_time = serial_cg(I, J, val_double, N);
+    
+    cusparse_time = cusparse_cg();
+    for (int i = 0; i < TEST_ROUND; i++) {
+        cusparse_time = std::min(cusparse_time, cusparse_cg());
     }
 
-    double cusparse_time = cusparse_cg(N, nz, I, J, val);
-    double cusp_time = cusp_cg(A);
-    double serial_time = serial_cg(I, J, val_double, N);
+    delete I;
+    delete J;
+    delete val;
+    delete val_double;
 
-    for (int i = 0; i < 5; i++) {
-        cusparse_time = std::min(cusparse_time, cusparse_cg(N, nz, I, J, val));
-        cusp_time = std::min(cusp_time, cusp_cg(A));
-        serial_time = std::min(serial_time, serial_cg(I, J, val_double, N));
-    }
-
-    free(I);
-    free(J);
-    free(val);
-    free(val_double);
     printf("cusparse_time: %f\ncusp_time: %f\nserial_time: %f\n", 
         cusparse_time * 1000, cusp_time * 1000, serial_time * 1000);
 }
+

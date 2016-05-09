@@ -1,5 +1,7 @@
 #define TOL 1e-5f
 #define MAX_ITER 10000
+#define TEST_ROUND 2
+
 
 void matrix_vector(int num_rows, int *ptr, int *indices, double *data, double *x, double *y);
 void vector_subtract(int size, double *vector1, double *vector2, double *result);

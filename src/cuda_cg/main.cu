@@ -1,7 +1,6 @@
 #include "main.h"
 #include "CycleTimer.h"
 
-
 int32_t main(int32_t argc, char* argv[]) {
 
     int N = 0;
@@ -19,18 +18,18 @@ int32_t main(int32_t argc, char* argv[]) {
 
     while ((c = getopt(argc, argv, "i:n:\n")) != -1) {
         switch (c) {
-        case 'i':
-            mmFileName = optarg;
-            cusp::io::read_matrix_market_file(matrix, mmFileName);
-            load_mm_file(matrix);
-            break;
-        case 'n':
-            N = std::atoi(optarg);
-            generate_matrix(N);
-            break;
-        default:
-            cerr << "Unknown parameter: " << optarg << endl;
-            return false;
+            case 'i':
+                mmFileName = optarg;
+                cusp::io::read_matrix_market_file(matrix, mmFileName);
+                load_mm_file(matrix);
+                break;
+            case 'n':
+                N = std::atoi(optarg);
+                generate_matrix(N);
+                break;
+            default:
+                cerr << "Unknown parameter: " << optarg << endl;
+                return false;
         }
     }
 
